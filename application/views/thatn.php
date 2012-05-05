@@ -123,7 +123,7 @@
 	} ?>
 
 	<div class='row-fluid'>
-		<div class='well'>
+		<div class='well clearfix'>
 			<section id='main-form' class='span6'>
 				<?php echo form_open('',array('class'=>'form-inline clearfix')); ?>
 					<!-- <fieldset class='span3 offset2'> -->
@@ -151,7 +151,8 @@
 				</form>
 			</section>
 			<section class='span6'>
-				<a href='#' class='btn'>View Source</a>
+				<a href='https://github.com/MauMaGau/thatn' class='btn'>View Source</a>
+				<a href='https://gist.github.com/2583140' class='btn'>Just the gist</a>
 				<a href='http://dtownsend.co.uk' class='btn'>Made by me</a>
 			</section>
 	</div>
@@ -182,9 +183,10 @@
 			$original_colour.'/'.
 			(($secondary_colour)?$secondary_colour:'0').'/'.
 			($page-1);
+			$disabled = ($page_colour ==='ffffff')?'disabled':'';
 		?>
 		<section class='span1' id='btn-lighter'>
-			<a href='<?php echo $lighter_link;?>' class='btn btn-primary'>Lighter<br><i class='icon-arrow-left icon-white'></i></a>
+			<a <?php if(empty($disabled)):?>href='<?php echo $lighter_link;?>'<?php endif;?> class='btn btn-primary <?php echo $disabled; ?>'>Lighter<br><i class='icon-arrow-left icon-white'></i></a>
 		</section>
 
 		<section id='lighter' class='span4'>
@@ -252,9 +254,10 @@
 			$original_colour.'/'.
 			(($secondary_colour)?$secondary_colour:'0').'/'.
 			($page+1);
+			$disabled = ($page_colour ==='000000')?'disabled':'';
 		?>
-		<section class='span1' id='btn-darker'>
-			<a href='<?php echo $darker_link;?>' class='btn btn-primary pull-right'>Darker<br><i class='icon-arrow-right icon-white'></i></a>
+		<section class='span1' id='btn-lighter'>
+			<a <?php if(empty($disabled)):?>href='<?php echo $darker_link;?>'<?php endif;?> class='btn btn-primary <?php echo $disabled; ?>'>Darker<br><i class='icon-arrow-right icon-white'></i></a>
 		</section>
 	</div>
 

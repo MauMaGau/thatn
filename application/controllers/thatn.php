@@ -58,19 +58,19 @@ class Thatn extends CI_Controller {
 				$step = $page * $limit;
 
 				// Adjust the colour to account for brightness change
-				$page_colour = $this->hexwheel->brightness($step);
+				$page_colour = $this->hexwheel->brightness((-15 * $page) + 100);
 
 				// Set the altered colour before creating lighter/darker colours
-				//$this->hexwheel->set_colour($page_colour);
+				$this->hexwheel->set_colour($page_colour);
 
 				// Create new colours with altered brightness. Negative brightness values create darker colours and vice versa.
-				$view_data['colour_1']	 	= $this->hexwheel->brightness(125);
-				$view_data['colour_2']	 	= $this->hexwheel->brightness(150);
-				$view_data['colour_4']		= $this->hexwheel->brightness(175);
+				$view_data['colour_1']	 	= $this->hexwheel->brightness(105);
+				$view_data['colour_2']	 	= $this->hexwheel->brightness(110);
+				$view_data['colour_4']		= $this->hexwheel->brightness(115);
 
-				$view_data['colour1']	 	= $this->hexwheel->brightness(75);
-				$view_data['colour2']	 	= $this->hexwheel->brightness(50);
-				$view_data['colour4']	 	= $this->hexwheel->brightness(25);
+				$view_data['colour1']	 	= $this->hexwheel->brightness(95);
+				$view_data['colour2']	 	= $this->hexwheel->brightness(90);
+				$view_data['colour4']	 	= $this->hexwheel->brightness(85);
 
 				// Let's try altering the saturation too
 				$view_data['colour_sat_1']  = $this->hexwheel->saturation(75);
