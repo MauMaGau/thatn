@@ -31,8 +31,6 @@ class Thatn extends CI_Controller {
 		// I want to use the form helper in the view, so we'll load that now
 		$this->load->helper('form');
 
-		$limit = 3; // Used for pagination. The number of lighter/darker colours.
-
 		// Data can either be POSTed or sent as URI segments
 		if ($this->input->post()){
 
@@ -54,20 +52,22 @@ class Thatn extends CI_Controller {
 				// We need to keep track of the original colour in case of paging
 				$original_colour = $this->hexwheel->colour;
 
-				// If we received a page, we need to offset the main colour's brightness
-				$step = $page * $limit;
+				// Set the offset for the main colour based on the page.
+				$step = 100 + (-15 * $page);
 
 				// Adjust the colour to account for brightness change
-				$page_colour = $this->hexwheel->brightness((-15 * $page) + 100);
+				$page_colour = $this->hexwheel->brightness($step);
 
 				// Set the altered colour before creating lighter/darker colours
 				$this->hexwheel->set_colour($page_colour);
 
-				// Create new colours with altered brightness. Negative brightness values create darker colours and vice versa.
+				// Create new colours with altered brightness.
+				// Uses percentages. 100% is current colour, less than 100% reduces brightness (darker), greater increases brightness (lighter)
+				// Lighter
 				$view_data['colour_1']	 	= $this->hexwheel->brightness(105);
 				$view_data['colour_2']	 	= $this->hexwheel->brightness(110);
 				$view_data['colour_4']		= $this->hexwheel->brightness(115);
-
+				// Darker
 				$view_data['colour1']	 	= $this->hexwheel->brightness(95);
 				$view_data['colour2']	 	= $this->hexwheel->brightness(90);
 				$view_data['colour4']	 	= $this->hexwheel->brightness(85);

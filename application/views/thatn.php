@@ -150,7 +150,7 @@
 					<!-- </fieldset> -->
 				</form>
 			</section>
-			<section class='span6'>
+			<section class='span4 offset2'>
 				<a href='https://github.com/MauMaGau/thatn' class='btn'>View Source</a>
 				<a href='https://gist.github.com/2583140' class='btn'>Just the gist</a>
 				<a href='http://dtownsend.co.uk' class='btn'>Made by me</a>
@@ -167,18 +167,6 @@
 <h3 class='well'>Lightness <small></small></h3>
 	<div class='row-fluid'>
 
-<!-- 		<?php echo form_open(
-			'thatn/'.
-			$original_colour.'/'.
-			(($secondary_colour)?$secondary_colour:'0').'/'.
-			($page-1),
-			array('id'=>'btn-lighter','class'=>'span1')
-		); ?>
-
-			<?php $disabled = ($page_colour ==='ffffff')?'disabled="disabled"':''; ?>
-			<input type='submit' value="Lighter" class='btn btn-large btn-primary' <?php echo $disabled; ?> />
-		</form>
--->
 		<?php $lighter_link = 'thatn/'.
 			$original_colour.'/'.
 			(($secondary_colour)?$secondary_colour:'0').'/'.
@@ -238,18 +226,7 @@
 				</p>
 			</div>
 		</section>
-<!--
-		<?php echo form_open(
-			'thatn/'.
-			$original_colour.'/'.
-			(($secondary_colour)?$secondary_colour:'0').'/'.
-			($page+1),
-			array('id'=>'btn-lighter','class'=>'span1')); ?>
 
-			<?php $disabled = ($page_colour ==='000000')?'disabled="disabled"':''; ?>
-			<input type='submit' value='Darker' class='btn btn-large btn-primary' <?php echo $disabled; ?> />
-		</form>
- -->
 		<?php $darker_link = 'thatn/'.
 			$original_colour.'/'.
 			(($secondary_colour)?$secondary_colour:'0').'/'.
@@ -257,7 +234,7 @@
 			$disabled = ($page_colour ==='000000')?'disabled':'';
 		?>
 		<section class='span1' id='btn-lighter'>
-			<a <?php if(empty($disabled)):?>href='<?php echo $darker_link;?>'<?php endif;?> class='btn btn-primary <?php echo $disabled; ?>'>Darker<br><i class='icon-arrow-right icon-white'></i></a>
+			<a <?php if(empty($disabled)):?>href='<?php echo $darker_link;?>'<?php endif;?> class='btn btn-primary <?php echo $disabled; ?> pull-right'>Darker<br><i class='icon-arrow-right icon-white'></i></a>
 		</section>
 	</div>
 
